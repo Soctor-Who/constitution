@@ -26,6 +26,10 @@ jobs:
         with:
           name: constitution
           path: main.pdf
+      - name: Sleep for 60 seconds for artifacts to propagate
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '60s'
       - name: echo value
         run: |
           echo ${{ github.event.client_payload.prnumber }}
