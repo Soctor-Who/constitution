@@ -1,6 +1,7 @@
 name: Create comment with artifacts
 on:
   repository_dispatch:
+   types: [my-event]
 jobs:
   repoBjobs:
     runs-on: [ubuntu-latest]
