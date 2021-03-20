@@ -1,10 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
 jobs:
   build:
@@ -30,11 +26,3 @@ jobs:
         with:
           name: constitution
           path: main.pdf
-
-      - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.PAT }}
-          repository: Soctor-Who/constitution
-          event-type: my-event
-          client-payload: '{"prnumber": "${{ github.event.number }}", "checkrunid": "${{ github.run_id }}"}'
